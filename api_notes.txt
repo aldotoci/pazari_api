@@ -1,0 +1,38 @@
+pass: UFoQGldntQCZeuRz 
+db.createCollection("products", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object", 
+            required: ["name", "model", "price", "image", "onStock","reviewStars", "tags", "createdDate", "lastUpdated", "stockRefilledDates"], 
+            properties: {
+                name: { bsonType:"string", description: "Name of the product" }, 
+                model: {bsonType:"string", description: "Model of the product"}, 
+                price: {bsonType: "int", description: "Price of the product"}, 
+                image: {bsonType: "string", description: "Image src"}, 
+                onStock: {bsonType: "int", description: "The number of products in stock"}, 
+                reviewStars: {bsonType: "double", description: "How many stars does the review have."}, 
+                tags: {bsonType: "array", description: "An array of strings"}, 
+                createdDate: {bsonType: "date", description: "date created"}, 
+                lastUpdated: {bsonType: "date", description:"Last date that is was updated."}, 
+                stockRefilledDates: {bsonType: "array", description: "dates updated",}
+            }
+        }
+    }
+})
+
+insert example
+
+db.products.insertOne({
+    name: "Share rethore dore",
+    model: "HS7601",
+    price: 2000,
+    image: "http://toolsmarket.al/wp-content/uploads/2020/12/HS7601.png",
+    onStock: 2,
+    reviewStars: 4.1,
+    tags: ["share", "rethore", "makita", "12v"], 
+    createdDate:  new Date(), 
+    lastUpdated: new Date('2022-03-14'), 
+    stockRefilledDates: [{date: new Date(), quantity: 2}]
+})
+
+how to connect : "mongodb+srv://cluster0.ubdzx.mongodb.net/myFirstDatabase" --apiVersion 1 --username products"
