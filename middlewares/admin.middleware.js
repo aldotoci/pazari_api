@@ -5,8 +5,7 @@ var tokenConfig = require('../config/token.config')
 
 router.post('**', async (req,res,next) => {
     let token = req.headers['x-access-token']
-    console.log(token)
-    if(token !== null){
+    if(token && token !== null){
         jwt.verify(token, tokenConfig.secret, (err, decoded) => {
             if(err){
                 return res.status(403).send({message: "Unathorised"})   
