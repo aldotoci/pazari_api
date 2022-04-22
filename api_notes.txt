@@ -1,4 +1,3 @@
-pass: UFoQGldntQCZeuRz 
 db.createCollection("products", {
     validator: {
         $jsonSchema: {
