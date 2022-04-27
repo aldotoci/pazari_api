@@ -14,7 +14,7 @@ db.mongoose.connect(dbConfig.uri).then(() => {
 })
 
 var corsOptions = {
-  origin: 'http://localhost:4200',
+  origin: 'https://immense-wildwood-18366.herokuapp.com',
   optionsSuccessStatus: 200,
   allowedHeaders: ['Content-Type', 'Authorization', 'x-access-token'],
   credentials: true
